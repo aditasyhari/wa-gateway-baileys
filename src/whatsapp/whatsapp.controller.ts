@@ -24,6 +24,7 @@ export class WhatsappController {
             connected: isConnected,
             kelasId,
             status: result.status,
+            userId: isConnected ? this.whatsappService.getUserId(kelasId) : null,
             message: isConnected
                 ? 'Session sudah terkoneksi.'
                 : 'Session dimulai. Silakan scan QR code via GET /api/whatsapp/session/qr/' + kelasId,

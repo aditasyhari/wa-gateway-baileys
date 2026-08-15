@@ -291,6 +291,9 @@ export class WhatsappService implements OnModuleDestroy {
     }
 
     /**
+     * Get the connected phone number/userId for the given kelasId session.
+     */
+    /**
      * Remove all in-memory references for a kelasId.
      */
     private cleanupSessionMemory(kelasId: number): void {
@@ -300,5 +303,17 @@ export class WhatsappService implements OnModuleDestroy {
         const timer = this.idleTimers.get(kelasId);
         if (timer) clearTimeout(timer);
         this.idleTimers.delete(kelasId);
+    }
+
+    /**
+     * Get the connected phone number/userId for the given kelasId session.
+     */
+    getUserId(kelasId: number): string | null {
+        const socket = this.sessions.get(kelasId);
+        if (!socket || !socket.user) {
+            return null;
+        }
+        const id = socket.user.id;
+        return id.split(':')[0].split('@')[0];
     }
 }
