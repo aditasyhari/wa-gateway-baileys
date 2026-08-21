@@ -1,12 +1,12 @@
 # 📋 TECHNICAL PRD: WA GATEWAY MICROSERVICE (NESTJS + BAILEYS)
 
 ## 1. Executive Summary
-Microservice WhatsApp Gateway berbasis NestJS & Baileys untuk mengirimkan notifikasi absensi otomatis dari platform `walikelas.id` (Laravel) ke orang tua siswa.
+Microservice WhatsApp Gateway berbasis NestJS & Baileys untuk mengirimkan notifikasi
 
 ---
 
 ## 2. Infrastructure & System Constraints
-- **Target Spec:** 1 Core VPS / 1-2 GB RAM (Shared with Laravel core).
+- **Target Spec:** 1 Core VPS / 1-2 GB RAM.
 - **Primary Objective:** Zero memory leak, extreme RAM optimization.
 - **Session Architecture:** Dedicated session uniquely bound to `kelasId` (number).
 - **Session Persistence Path:** `./sessions/class_{kelasId}/`
